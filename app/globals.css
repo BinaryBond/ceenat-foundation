@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme  {
+  --font-sans: var(--font-raleway);
+  --color-primary-default: #0C2C34;
+  --color-primary-active: #092228;
+  --color-primary-hover: #175665;
+}
+
+
+
