@@ -50,10 +50,10 @@
   --font-size-displayLarge: 48px;
   --font-size-displayExtraLarge: 64px;
 
-  /* card icon dimensions */
-  --height-cvCardHeight: clamp(48px, 7.5vw, 72px);
-  --width-cvCardWidth: clamp(48px, 7.5vw, 72px);
-
+   /* card icon dimensions */
+   --height-cvCardHeight: clamp(48px, 7.5vw, 72px);
+   --width-cvCardWidth: clamp(48px, 7.5vw, 72px);
+ 
 }
 
 
@@ -109,15 +109,13 @@ body {
    .text-displayExtraLarge{
     font-size: var(--font-size-displayExtraLarge);
   }
-  
+
   /* Container utilities */
-  
   .container-wide {
-    @apply max-w-[1350px] mx-auto px-5 sm:px-8 md:px-10 lg:px-12;
+    @apply max-w-[1350px] mx-auto px-4 sm:px-8 md:px-10 lg:px-12;
   }
 
   /* Spacing utilities */
-
   .section-padding {
     @apply py-8 md:py-12 lg:py-16;
   }

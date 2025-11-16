@@ -19,15 +19,16 @@ export default function navbar() {
       <nav className="container-wide nav-padding flex-between relative z-50">
         <div className="flex-center gap-0.5 max-w-[155px] md:max-w-[500px]">
           <Image
-            className="w-[50px] h-[50px]"
+            className="w-10 h-10"
             src="/svg/logo.svg"
             width={80}
             height={80}
             alt="logo"
           />
-          <p className="text-primary-default text-headingSmall font-extrabold leading-[23px]">
+          <p className="text-primary-default text-bodyLarge font-extrabold leading-5">
             Ceenat Foundation
-          </p>
+            </p>
+          
         </div>
 
         {/* Desktop Navigation */}
@@ -46,7 +47,7 @@ export default function navbar() {
         {/* Mobile Menu Button */}
         <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
           <Image
-            className="w-[25px] h-5 hover:cursor-pointer"
+            className="w-[21px] h-4 hover:cursor-pointer"
             src="/svg/hamburger.svg"
             width={80}
             height={80}
