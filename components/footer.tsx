@@ -12,7 +12,7 @@ const navItems = [
 
 export default function footer() {
   return (
-    <footer className="bg-[#18171C] text-white flex flex-col gap-4 justify-between bottom-0    px-6 fixed w-full pt-[42px] pb-[82px] z-50">
+    <footer className="bg-[#18171C] text-white flex flex-col gap-4 justify-between px-6 w-full pt-[42px] pb-[82px]">
       <div className="flex flex-col gap-[30px]">
         <div className="flex flex-col gap-5">
           <h1 className="text-white font-bold text-2xl">Ceenat Foundation</h1>
@@ -25,7 +25,7 @@ export default function footer() {
             <Link href="">
               <Image
                 className="w-6 h-6"
-                src="/Facebook.svg"
+                src="/svg/Facebook.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -34,7 +34,7 @@ export default function footer() {
             <Link href="">
               <Image
                 className="w-6 h-6"
-                src="/Instagram.svg"
+                src="/svg/Instagram.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -43,7 +43,7 @@ export default function footer() {
             <Link href="">
               <Image
                 className="w-6 h-6"
-                src="/Twitter.svg"
+                src="/svg/Twitter.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -53,7 +53,7 @@ export default function footer() {
             <Link href="">
               <Image
                 className="w-6 h-6"
-                src="/LinkedIn.svg"
+                src="/svg/LinkedIn.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -76,15 +76,18 @@ export default function footer() {
       </div>
       {/*  */}
       <div className="flex flex-col gap-8">
-        <div className="h-[0.4px] w-full bg-[#f9f9f9]"/>
+        <div className="h-[0.4px] w-full bg-[#f9f9f9]" />
         <div className="flex flex-col gap-[22px] text-[14px] font-medium">
-            <p>© 2025 CeenatFoundation. All rights reserved.</p>
-            <div className="flex gap-6">
-                <Link href=''><p>Privacy Policy</p></Link>
-                <Link href=''><p>Terms of Service</p></Link>
-            </div>
+          <p>© 2025 CeenatFoundation. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="">
+              <p>Privacy Policy</p>
+            </Link>
+            <Link href="">
+              <p>Terms of Service</p>
+            </Link>
+          </div>
         </div>
-
       </div>
     </footer>
   );

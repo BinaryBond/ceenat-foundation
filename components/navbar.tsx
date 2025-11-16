@@ -16,19 +16,19 @@ export default function navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <nav className="bg-white flex justify-between border-b border-[#e0e0e0]  items-center px-6 py-2.5 relative z-50">
-        <div className="flex items-center max-w-[155px]">
+    <main className="bg-gray-1 w-full fixed top-0  z-60 border-b border-gray-4">
+      <nav className="container-wide nav-padding flex-between ">
+        <div className="flex-center gap-0.5 max-w-[155px]">
           <Image
-            className="w-[35px] h-[33.95px]"
-            src="/LOGO.svg"
+            className="w-10 h-10"
+            src="/svg/logo.svg"
             width={80}
             height={80}
             alt="logo"
           />
-          <h3 className="text-primary-default text-[14px] font-extrabold leading-4">
+          <p className="text-primary-default text-bodyLarge font-extrabold leading-[20px]">
             Ceenat Foundation
-          </h3>
+          </p>
         </div>
 
         {/* Desktop Navigation */}
@@ -48,7 +48,7 @@ export default function navbar() {
         <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
           <Image
             className="w-[21px] h-4 hover:cursor-pointer"
-            src="/hamburger.svg"
+            src="/svg/hamburger.svg"
             width={80}
             height={80}
             alt="menu"
@@ -73,6 +73,6 @@ export default function navbar() {
           </div>
         </div>
       )}
-    </>
+    </main>
   );
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
+
 const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable}  antialiased`}>
+      <body className={`${raleway.variable} relative  antialiased`}>
         <Navbar />
         {children}
         <Footer />
