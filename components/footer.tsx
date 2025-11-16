@@ -26,7 +26,6 @@ export default function footer() {
               <Image
                 className="w-6 h-6"
                 src="/svg/Facebook.svg"
-                src="/svg/Facebook.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -36,7 +35,6 @@ export default function footer() {
               <Image
                 className="w-6 h-6"
                 src="/svg/Instagram.svg"
-                src="/svg/Instagram.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -45,7 +43,6 @@ export default function footer() {
             <Link href="">
               <Image
                 className="w-6 h-6"
-                src="/svg/Twitter.svg"
                 src="/svg/Twitter.svg"
                 width={80}
                 height={80}
@@ -56,7 +53,6 @@ export default function footer() {
             <Link href="">
               <Image
                 className="w-6 h-6"
-                src="/svg/LinkedIn.svg"
                 src="/svg/LinkedIn.svg"
                 width={80}
                 height={80}
