@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function FooterPics() {
   return (
-    <div className="px-8 h-[420px] md:h-[1022px] flex flex-row gap-2 md:gap-4 pb-2">
+    <div className="px-2 h-[420px] md:h-[1022px]  flex flex-row gap-2 md:gap-4 pb-2">
       {/* Left column: 2 stacked images */}
       <div className="flex flex-col gap-2 md:gap-4 flex-1">
         <Image
