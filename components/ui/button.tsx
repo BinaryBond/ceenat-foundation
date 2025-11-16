@@ -1,5 +1,16 @@
 import Link from "next/link";
 import React from "react";
+import { classNames } from "../../utils/classNames";
+
+// Map of variant names to Tailwind class strings
+const variants = {
+  default:
+    "bg-primary-default text-gray-1 hover:bg-primary-hover focus:bg-primary-active",
+  outline:
+    "bg-gray-1  text-primary-default border border-solid border-primary-default hover:bg-gray-3 focus:bg-gray-3",
+} as const;
+
+type Variant = keyof typeof variants;
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -10,7 +21,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   form?: string;
   disabled?: boolean;
   icon?: React.ReactNode;
+  // choose which visual variant to use
+  variant?: Variant;
 }
+
+const baseStyles =
+  "px-6 py-3 lg:px-8 lg:py-4 text-bodyLarge lg:text-headingExtraSmall cursor-pointer rounded-lg flex-center gap-[10px] font-medium  disabled:opacity-50 disabled:cursor-not-allowed";
 
 export default function Button({
   text,
@@ -21,6 +37,7 @@ export default function Button({
   form,
   href,
   icon,
+  variant = "default",
   ...props
 }: ButtonProps) {
   const buttonContent = (
@@ -29,7 +46,7 @@ export default function Button({
       type={type}
       form={form}
       onClick={onClick}
-      className={`${className} bg-primary-default text-gray-1 px-6 py-3 lg:px-8 lg:py-4 text-bodyLarge lg:text-headingExtraSmall cursor-pointer rounded-lg flex-center gap-[10px] font-medium  disabled:opacity-50 disabled:cursor-not-allowed`}
+      className={classNames(baseStyles, variants[variant], className)}
       {...props}
     >
       {text}
