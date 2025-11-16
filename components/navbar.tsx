@@ -4,35 +4,34 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
-  { name: "Get Involved", href: "/get-involved" },
-  { name: "News & Events", href: "/news" },
-  { name: "Contact", href: "/contact" },
+ 
+  { name: "About us", href: "/about" },
+  { name: "Our Programs", href: "/programs" },
+  { name: "Volunteer", href: "/get-involved" },
+  { name: "Contact us", href: "/contact" },
 ];
 
 export default function navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      <nav className="bg-white flex justify-between border-b border-[#e0e0e0]  items-center px-6 py-2.5 relative z-50">
-        <div className="flex items-center max-w-[155px]">
+    <main className="bg-gray-1 w-full fixed top-0 border-b border-gray-4">
+      <nav className="container-wide nav-padding flex-between relative z-50">
+        <div className="flex-center gap-0.5 max-w-[155px] md:max-w-[500px]">
           <Image
-            className="w-[35px] h-[33.95px]"
-            src="/LOGO.svg"
+            className="w-[50px] h-[50px]"
+            src="/svg/logo.svg"
             width={80}
             height={80}
             alt="logo"
           />
-          <h3 className="text-primary-default text-[14px] font-extrabold leading-4">
+          <p className="text-primary-default text-headingSmall font-extrabold leading-[23px]">
             Ceenat Foundation
-          </h3>
+          </p>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -45,10 +44,10 @@ export default function navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
           <Image
-            className="w-[21px] h-4 hover:cursor-pointer"
-            src="/hamburger.svg"
+            className="w-[25px] h-5 hover:cursor-pointer"
+            src="/svg/hamburger.svg"
             width={80}
             height={80}
             alt="menu"
@@ -58,7 +57,7 @@ export default function navbar() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 absolute w-full z-40">
+        <div className="lg:hidden bg-white border-t border-gray-200 absolute w-full z-40">
           <div className="px-6 py-4 space-y-3">
             {navItems.map((item) => (
               <Link
@@ -73,6 +72,6 @@ export default function navbar() {
           </div>
         </div>
       )}
-    </>
+    </main>
   );
 }
