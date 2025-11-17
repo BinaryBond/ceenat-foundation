@@ -23,6 +23,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
   // choose which visual variant to use
   variant?: Variant;
+  startingIcon?: React.ReactNode;
+  
 }
 
 const baseStyles =
@@ -38,6 +40,7 @@ export default function Button({
   href,
   icon,
   variant = "default",
+  startingIcon,
   ...props
 }: ButtonProps) {
   const buttonContent = (
@@ -49,6 +52,7 @@ export default function Button({
       className={classNames(baseStyles, variants[variant], className)}
       {...props}
     >
+      {startingIcon}
       {text}
       {icon}
     </button>

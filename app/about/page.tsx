@@ -74,9 +74,9 @@ export default function About() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col flex-1 md:flex-row gap-6">
+        <div className="flex flex-col flex-1 md:flex-row lg:flex-col lg:border-l border-gray-6 px-6 gap-6">
           {/* our mission */}
-          <div className="flex-col flex md:text-center gap-4 max-w-[400px]">
+          <div className="flex-col flex md:text-center lg:text-left gap-4 max-w-[400px]">
             <h3 className="text-gray-10 text-headingSmall md:text-headingMedium font-bold">
               Our Mission
             </h3>
@@ -89,7 +89,7 @@ export default function About() {
           {/*  */}
           <div className=" w-px bg-gray-6"></div>
           {/* our vision */}
-          <div className="flex-col flex md:text-center gap-4 max-w-[400px]">
+          <div className="flex-col flex md:text-center lg:text-left gap-4 max-w-[400px]">
             <h3 className="text-gray-10 text-headingSmall font-bold">
               Our Vision
             </h3>
