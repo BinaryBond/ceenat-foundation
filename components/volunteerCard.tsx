@@ -41,10 +41,10 @@ export default function volunteerCard({
           width={1920}
           height={1080}
           alt="img"
-          className=" w-[44px] md:w-[72px] "
+          className=" w-11 md:w-[72px] "
         />
       </div>
-      <div className="flex flex-col gap-10 lg:flex-row w-full">
+      <div className="flex flex-col gap-10 lg:flex-row lg:justify-around w-full">
         {/* text */}
         <div className="flex flex-col max-w-[480px] gap-8">
           <div className="flex flex-col gap-4">
