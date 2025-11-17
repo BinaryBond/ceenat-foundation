@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { X } from "lucide-react";
 
 const navItems = [
  
@@ -15,22 +16,23 @@ export default function navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <main className="bg-gray-1 w-full fixed top-0 border-b border-gray-4">
+    <main className="bg-gray-1 w-full fixed top-0 border-b z-9999 border-gray-4">
       <nav className="container-wide nav-padding flex-between relative z-50">
-        <div className="flex-center gap-0.5 max-w-[155px] md:max-w-[500px]">
-          <Image
-            className="w-10 h-10"
-            src="/svg/logo.svg"
-            width={80}
-            height={80}
-            alt="logo"
-          />
-          <p className="text-primary-default text-bodyLarge font-extrabold leading-5">
-            Ceenat Foundation
-            </p>
-          
-        </div>
-
+        <Link href="/">
+          <div className="flex-center gap-0.5 max-w-[155px] md:max-w-[500px]">
+            <Image
+              className="w-10 h-10"
+              src="/svg/logo.svg"
+              width={80}
+              height={80}
+              alt="logo"
+            />
+            <p className="text-primary-default text-bodyLarge font-extrabold leading-5">
+              Ceenat Foundation
+              </p>
+            
+          </div>
+        </Link>
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-6">
           {navItems.map((item) => (
@@ -46,6 +48,7 @@ export default function navbar() {
 
         {/* Mobile Menu Button */}
         <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
+          {isOpen ? <X className="w-6 h-6 text-primary-default"/> :           
           <Image
             className="w-[21px] h-4 hover:cursor-pointer"
             src="/svg/hamburger.svg"
@@ -53,6 +56,7 @@ export default function navbar() {
             height={80}
             alt="menu"
           />
+          }
         </button>
       </nav>
 
