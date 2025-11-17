@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} relative  antialiased`}>
+      <body className={`${raleway.variable} relative antialiased min-w-[320px]`}>
         <Navbar />
         {children}     
         <Footer />     
