@@ -5,7 +5,6 @@
   --foreground: #171717;
   --cvCardHeight: clamp(48px, 50vw, 72px);
   --cvCardWidth: clamp(48px, 50vw, 72px);
-
 }
 
 @theme {
@@ -20,7 +19,7 @@
   --color-tertiary-active: #d6c988;
   --color-tertiary-hover: #f3e9b9;
 
-  /* === NEUTRAL COLORS === */
+  /* NEUTRAL COLORS */
   --color-gray-1: #ffffff;
   --color-gray-2: #f5f5f5;
   --color-gray-3: #ededed;
@@ -32,6 +31,19 @@
   --color-gray-9: #404040;
   --color-gray-10: #0a0a0a;
   --color-gray-11: #18171c;
+
+  /* GREEN COLORS */
+  --color-green-1: #eef9fb;
+  --color-green-2: #e7f6fa;
+  --color-green-3: #d1edf4;
+  --color-green-4: #aadeeb;
+  --color-green-5: #75cadf;
+  --color-green-6: #38b3d1;
+  --color-green-7: #24829a;
+  --color-green-8: #175665;
+  --color-green-9: #0f353f;
+  --color-green-10: #092228;
+  --color-green-11: #081c21;
 
   /* FONT SIZES */
   --font-size-bodyExtraSmall: 10px;
@@ -50,63 +62,92 @@
   --font-size-displayLarge: 48px;
   --font-size-displayExtraLarge: 64px;
 
-   /* card icon dimensions */
-   --height-cvCardHeight: clamp(48px, 7.5vw, 72px);
-   --width-cvCardWidth: clamp(48px, 7.5vw, 72px);
- 
+  /* card icon dimensions */
+  --height-cvCardHeight: clamp(48px, 7.5vw, 72px);
+  --width-cvCardWidth: clamp(48px, 7.5vw, 72px);
 }
-
 
 body {
   font-family: var(--font-raleway), system-ui, sans-serif;
 }
 
 @layer utilities {
+
+
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+
+  .multiple-strips-mask {
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+
+    mask-image: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'>\
+        <rect x='4'  y='15' width='19' height='70' rx='9' fill='white' />\
+        <rect x='28' y='0'  width='19' height='100' rx='9' fill='white' />\
+        <rect x='52' y='0'  width='19' height='100' rx='9' fill='white' />\
+        <rect x='76' y='15' width='19' height='70' rx='9' fill='white' />\
+    </svg>");
+
+    -webkit-mask-image: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'>\
+    <rect x='4'  y='15' width='19' height='70' rx='9' fill='white' />\
+        <rect x='28' y='0'  width='19' height='100' rx='9' fill='white' />\
+        <rect x='52' y='0'  width='19' height='100' rx='9' fill='white' />\
+        <rect x='76' y='15' width='19' height='70' rx='9' fill='white' />\
+    </svg>");
+  }
+
   /* Font utilities */
- 
-  .text-bodyExtraSmall{
+
+  .text-bodyExtraSmall {
     font-size: var(--font-size-bodyExtraSmall);
   }
-  .text-bodySmall{
+  .text-bodySmall {
     font-size: var(--font-size-bodySmall);
   }
-  .text-bodyMedium{
+  .text-bodyMedium {
     font-size: var(--font-size-bodyMedium);
   }
-  .text-bodySemiLarge{
+  .text-bodySemiLarge {
     font-size: var(--font-size-bodySemiLarge);
   }
-  .text-bodyLarge{
+  .text-bodyLarge {
     font-size: var(--font-size-bodyLarge);
   }
-  .text-headingExtraSmall{
+  .text-headingExtraSmall {
     font-size: var(--font-size-headingExtraSmall);
   }
-  .text-headingSmall{
+  .text-headingSmall {
     font-size: var(--font-size-headingSmall);
   }
-  .text-headingSemiMedium{
+  .text-headingSemiMedium {
     font-size: var(--font-size-headingSemiMedium);
   }
-  .text-headingMedium{
+  .text-headingMedium {
     font-size: var(--font-size-headingMedium);
   }
-  .text-headingLarge{
+  .text-headingLarge {
     font-size: var(--font-size-headingLarge);
   }
-  .text-headingExtraLarge{
+  .text-headingExtraLarge {
     font-size: var(--font-size-headingExtraLarge);
   }
-  .text-displaySmall{
+  .text-displaySmall {
     font-size: var(--font-size-displaySmall);
   }
-  .text-displayMedium{
+  .text-displayMedium {
     font-size: var(--font-size-displayMedium);
   }
-   .text-displayLarge{
+  .text-displayLarge {
     font-size: var(--font-size-displayLarge);
   }
-   .text-displayExtraLarge{
+  .text-displayExtraLarge {
     font-size: var(--font-size-displayExtraLarge);
   }
 
@@ -117,13 +158,13 @@ body {
 
   /* Spacing utilities */
   .section-padding {
-    @apply py-8 md:py-12 lg:py-16;
+    @apply py-10 md:py-12 lg:py-16;
   }
-  .nav-padding{
-    @apply py-5
+  .nav-padding {
+    @apply py-5;
   }
-  .cvCard{
-    @apply w-cvCardWidth h-cvCardHeight
+  .cvCard {
+    @apply w-cvCardWidth h-cvCardHeight;
   }
 }
 
@@ -133,5 +174,14 @@ body {
   }
   .flex-between {
     @apply flex items-center justify-between;
+  }
+  .section-title {
+    @apply text-base text-green-8 font-bold text-center;
+  }
+  .section-max-title {
+    @apply text-xl text-gray-11 font-bold px-6 text-center;
+  }
+  .section-subtext {
+    @apply text-[13px] text-gray-8 font-medium px-1 text-center;
   }
 }

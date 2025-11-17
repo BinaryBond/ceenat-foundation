@@ -21,7 +21,7 @@ export default function About() {
           quote="Born from Compassion. Built on Hope."
         />
         {/* text with image */}
-        <div className=" container-wide   section-padding ">
+        <div className=" container-wide section-padding">
           <div className="lg:h-[640px] flex flex-col gap-8 lg:flex-row">
             <p className="text-[0A0A0A] gap-4  lg:place-content-center lg:flex-1 text-BodyLarge md:text-xl flex flex-col ">
               <span>
