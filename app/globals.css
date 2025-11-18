@@ -67,8 +67,8 @@
   --font-size-displayExtraLarge: 64px;
 
   /* card icon dimensions */
-  --height-cvCardHeight: clamp(48px, 7.5vw, 72px);
-  --width-cvCardWidth: clamp(48px, 7.5vw, 72px);
+  --height-cvCardHeight: clamp(24px, 7.5vw, 56px);
+  --width-cvCardWidth: clamp(24px, 7.5vw, 56px);
 }
 
 body {

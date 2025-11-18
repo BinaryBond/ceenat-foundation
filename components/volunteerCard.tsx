@@ -35,23 +35,23 @@ export default function volunteerCard({
   return (
     <div className="flex flex-col  lg:w-full  ">
       {/* icon */}
-      <div className="bg-primary-default rounded-full mb-4 w-fit h-fit p-4 md:p-[26px] ">
+      <div className="bg-primary-default md:self-center lg:self-start  rounded-full mb-4 w-fit h-fit p-2.5 md:p-[16px] ">
         <Image
           src={iconSrc}
           width={1920}
           height={1080}
           alt="img"
-          className=" w-11 md:w-[72px] "
+          className=" w-6 md:w-[56px] "
         />
       </div>
-      <div className="flex flex-col gap-10 lg:flex-row lg:justify-around w-full">
+      <div className="flex flex-col  gap-4 md:gap-6 lg:flex-row lg:justify-around  w-full">
         {/* text */}
-        <div className="flex flex-col max-w-[480px] gap-8">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-displaySmall font-bold ">{title}</h3>
-            <p className="text-bodySmall text-[#4f4f4f]">{description}</p>
+        <div className="flex flex-col w-full  gap-4 lg:gap-4">
+          <div className="flex flex-col max-w-[480px] lg:self-start md:self-center md:text-center lg:text-left gap-1 md:gap-2 ">
+            <h3 className="text-[24px] md:text-[28px] font-bold ">{title}</h3>
+            <p className="text-[12px] md:text-[16px] lg:text-[18px] text-[#4f4f4f]">{description}</p>
           </div>
-          <div className="flex gap-6">
+          <div className="flex md:self-center lg:self-start w-fit gap-6">
             <Button
               className={`${btnClassName} `}
               text={btnText}
@@ -71,17 +71,19 @@ export default function volunteerCard({
           </div>
         </div>
         {/* image */}
-        <div className="rounded-lg overflow-hidden max-w-[480px] lg:max-w-[462px] h-[300px] md:h-[420px] lg:h-[440px]">
+        <div className=" w-full ">
+          <div className="rounded-lg overflow-hidden flex-grow  h-[300px] md:h-[360px]  lg:h-[440px]">
+            {/* to maintain aspect ratio  */}
           <Image
             src={imgSrc}
             width={1920}
             height={1080}
             alt="img"
-            className="  object-cover  h-full w-full "
+            className=" w-full h-full  object-cover  "
           />
         </div>
+          </div>
       </div>
     </div>
   );
 }
-// 44 72

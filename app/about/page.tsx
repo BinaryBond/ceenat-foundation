@@ -12,7 +12,7 @@ import EmployeeCard from "../../components/employeeCard";
 
 const coreValues = [
   { img: "/svg/compassion.svg", text: "Compassion" },
-  { img: "/svg/community.svg", text: "Community" },
+  { img: "/svg/community2.svg", text: "Community" },
   { img: "/svg/integrity.svg", text: "Integrity" },
   { img: "/svg/empowerment.svg", text: "Empowerment" },
   { img: "/svg/hope.svg", text: "Hope" },
@@ -107,15 +107,17 @@ const employeesInfo = [
 export default function About() {
   return (
     <div className="mt-[90px] min-h-screen max w-screen overflow-x-hidden ">
-      <section className="section-padding flex flex-col">
+    
+      
+    <section className="section-padding flex flex-col gap-4 md:gap-6 lg:gap-10">
         <PageHeader
           title="About Us"
           quote="Born from Compassion. Built on Hope."
         />
         {/* text with image */}
-        <div className=" container-wide section-padding">
+        <div className=" container-wide  ">
           <div className="lg:h-[640px] flex flex-col gap-8 lg:flex-row">
-            <p className="text-[0A0A0A] gap-4  lg:place-content-center lg:flex-1 text-BodyLarge md:text-xl flex flex-col ">
+            <p className="text-[0A0A0A] gap-2 lg:gap-4  lg:place-content-center lg:flex-1 text-[12px] md:text-[16px] lg:text-[18px] flex flex-col ">
               <span>
                 Ceenat Foundation is a Ghana-based non-profit organization
                 dedicated to fighting poverty and improving child welfare.
@@ -149,13 +151,13 @@ export default function About() {
         </div>
       </section>
       {/* core values and mission */}
-      <section className=" container-wide w-full   flex flex-col lg:flex-row lg:justify-between gap-14 section-padding">
+      <section className=" container-wide w-full flex flex-col lg:flex-row lg:justify-between gap-6 md:gap-10 ">
         {/* CV */}
-        <div className="flex flex-col flex-1 gap-4 md:gap-11">
-          <h3 className="text-primary-default  text-headingSmall md:text-headingMedium font-bold text-center">
+        <div className="flex flex-col flex-1 gap-4 md:gap-5">
+          <h3 className="text-primary-default self-center section-title  w-fit md:pl-2 font-bold ">
             Core Values
           </h3>
-          <div className="flex flex-col md:grid grid-cols-2 md:gap-6 gap-4 ">
+          <div className="flex flex-col md:grid grid-cols-2 md:gap-6 gap-3 ">
             {coreValues.map((coreValue) => (
               <CVCards
                 key={coreValue.img}
@@ -166,26 +168,26 @@ export default function About() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col flex-1 md:flex-row lg:flex-col lg:border-l border-gray-6 px-6 gap-6">
+        <div className="flex flex-col flex-1 md:flex-row lg:flex-col lg:border-l border-gray-4 lg:px-6 gap-4 md:gap-6">
           {/* our mission */}
-          <div className="flex-col flex md:text-center lg:text-left gap-4 max-w-[400px]">
-            <h3 className="text-gray-10 text-headingSmall md:text-headingMedium font-bold">
+          <div className="flex-col flex md:w-full text-center lg:text-left gap-1 md:gap-3 lg:max-w-[400px]">
+            <h3 className="text-gray-10 section-title lg:text-left font-bold">
               Our Mission
             </h3>
-            <p className="text-bodyMedium text-[#4f4f4f] ">
+            <p className="text-[12px] md:text-[14px] text-[#4f4f4f]  ">
               To alleviate poverty and promote child welfare by providing food,
               education, healthcare, and empowerment to vulnerable families
               across Ghana.
             </p>
           </div>
           {/*  */}
-          <div className=" w-px bg-gray-6"></div>
+          <div className=" w-px bg-gray-4"></div>
           {/* our vision */}
-          <div className="flex-col flex md:text-center lg:text-left gap-4 max-w-[400px]">
-            <h3 className="text-gray-10 text-headingSmall font-bold">
+          <div className="flex-col md:w-full flex text-center lg:text-left gap-1 md:gap-3 lg:max-w-[400px]">
+            <h3 className="text-gray-10 section-title lg:text-left font-bold">
               Our Vision
             </h3>
-            <p className="text-bodyMedium text-[#4f4f4f] ">
+            <p className="text-[12px] md:text-[14px] text-[#4f4f4f] ">
               A Ghana where every child is fed, nurtured, and empowered to reach
               their full potential.
             </p>
@@ -213,6 +215,7 @@ export default function About() {
             />
           ))}
         </Carousel>
+        <div className="w-full h-px bg-gray-3"/>
       </section>
 
       {/* FAQ */}

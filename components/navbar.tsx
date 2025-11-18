@@ -19,7 +19,7 @@ const navItems = [
 export default function navbar() {
   const { isOpened, setIsOpened } = useMenu();
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
   const pathname = usePathname();
 
 
@@ -86,7 +86,7 @@ export default function navbar() {
                 key={item.name}
                 href={item.href}
                 className={`${
-                  isActive ? "text-green-8" : "text-gray-8"
+                  isActive ? "text-green-8" : "text-gray-7"
                 }  text-sm xl:text-[15px] font-medium hover:text-green-8 transition-colors`}
               >
                 {item.name}

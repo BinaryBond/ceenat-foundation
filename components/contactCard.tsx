@@ -14,13 +14,13 @@ export default function contactCard({
   link,
 }: ContactCardProps) {
   return (
-    <div className="flex flex-col w-full md:min-w-[220px] border border-gray-5 rounded-[16px] gap-2 w-fit p-4 ">
+    <div className="flex flex-col items-center md:items-start w-full md:min-w-[220px] border border-gray-5 rounded-[16px] gap-2 w-fit p-4 ">
       {/* icon */}
       <div className="bg-primary-default rounded-full mb-4 w-fit h-fit p-[16px] ">
         {icon}
       </div>
       {/* text */}
-        <h3 className="text-headingSmall font-bold flex-1 ">{title}</h3>
+        <h3 className="text-[16px] md:text-xl   font-bold flex-1 ">{title}</h3>
       <div className="flex flex-col mt-2 ">
         <Button  text={btnText} href={link}  variant="default" />
       </div>

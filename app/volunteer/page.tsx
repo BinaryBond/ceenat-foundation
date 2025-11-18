@@ -91,7 +91,7 @@ export default function page() {
           quote="Every meal, every smile, and every act of kindness tells a story"
         />
         <div>
-          <p className="text-bodyLarge flex flex-col gap-4 text-[#4f4f4f]">
+          <p className="text-[12px] md:text-[16px] mt-4 flex flex-col text-center gap-3 text-[#4f4f4f]">
             <span>
               Every meal, every smile, and every act of kindness tells a story —
               a story of lives restored and communities renewed. At Ceenat
