@@ -26,7 +26,7 @@ export default function footer() {
             <Link className="group" href="">
               <Image
                 className="w-6 h-6 group-hover:scale-125 transition-transform"
-                src="/svg/Facebook.svg"
+                src="/svg/facebook.svg"
                 width={80}
                 height={80}
                 alt="logo"
@@ -54,7 +54,7 @@ export default function footer() {
             <Link className="group" href="">
               <Image
                 className="w-6 h-6 group-hover:scale-125 transition-transform"
-                src="/svg/LinkedIn.svg"
+                src="/svg/linkedIn.svg"
                 width={80}
                 height={80}
                 alt="logo"
