@@ -19,7 +19,7 @@ const coreValues = [
 ];
 const employeesInfo = [
   {
-    img: "img/carousel/director.jpg",
+    img: "img/carousel/director.JPG",
     name: "Cecilia Otoo",
     position: "director",
     details:
@@ -91,7 +91,7 @@ const employeesInfo = [
     ],
   },
   {
-    img: "img/carousel/pr.jpg",
+    img: "img/carousel/pr.JPG",
     name: "Teddy Cobbold",
     position: "Public Relations",
     details:
