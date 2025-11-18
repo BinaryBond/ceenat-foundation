@@ -40,7 +40,7 @@ const volunteerData = [
     button: false,
     btnClassName: "flex-1",
     variant: "default" as "default",
-    startingIcon: <img src="/svg/Facebook.svg" />,
+    startingIcon: <img src="/svg/facebook.svg" />,
     startingIcon2: <img src="/svg/Instagram.svg" />,
     picButtons: true,
   },
