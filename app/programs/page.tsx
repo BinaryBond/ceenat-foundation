@@ -36,7 +36,8 @@ const imageUrls = [
 
 export default function page() {
   return (
-    <div className="mt-[90px] flex flex-col ">
+    <div className="mt-[90px] flex flex-col  ">
+      <div className="section-padding min-h-screen">
       <PageHeader title="Our Programs" />
       {/* text with image */}
       <section className=" container-wide w-full section-padding">
@@ -76,6 +77,8 @@ export default function page() {
         
         </div>
       </section>
+
+      </div>
       <FooterPics />
     </div>
   );

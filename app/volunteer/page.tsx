@@ -37,9 +37,12 @@ const volunteerData = [
     btnText: "Facebook",
     secondbtnText: "Instagram",
     secondBtn: true,
+    button: false,
+    btnClassName: "flex-1",
     variant: "default" as "default",
     startingIcon: <img src="/svg/Facebook.svg" />,
     startingIcon2: <img src="/svg/Instagram.svg" />,
+    picButtons: true,
   },
 ];
 
@@ -64,7 +67,8 @@ const stories =[
 
 export default function page() {
   return (
-    <div className="mt-[90px] flex-1  flex flex-col ">
+    
+    <div className="mt-[90px] flex-1 bg-[#f7f7f7] min-h-screen  flex flex-col ">
       <div className="section-padding container-wide  flex flex-col">
         <PageHeader title="Get Involved" quote="Be Part of the Change." />
         <div className=" section-padding gap-6 flex-col flex">
@@ -82,6 +86,9 @@ export default function page() {
               startingIcon={item.startingIcon}
               startingIcon2={item.startingIcon2}
               variant={item.variant as "outline" | "default" | undefined} // optional: different variant per card
+              button={item.button}
+              btnClassName={item.btnClassName}
+              picButtons={item.picButtons}
               // variant="outline"
             />
           ))}

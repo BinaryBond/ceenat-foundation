@@ -9,9 +9,12 @@ interface VolunteerCardProps {
   iconSrc: string;
   onClick?: () => void;
   btnClassName?: string;
+  button?: boolean;
   secondBtn?: boolean;
   secondbtnText?: string;
   onClick2?: () => void;
+  onClick3?: () => void;
+  picButtons?: boolean;
   startingIcon?: React.ReactNode;
   startingIcon2?: React.ReactNode;
   variant?: "outline" | "default";
@@ -27,7 +30,10 @@ export default function volunteerCard({
   btnClassName,
   secondBtn,
   secondbtnText,
+  button= true,
+  picButtons=false,
   onClick2,
+  onClick3,
   variant = "outline",
   startingIcon,
   startingIcon2,
@@ -49,40 +55,57 @@ export default function volunteerCard({
         <div className="flex flex-col w-full  gap-4 lg:gap-4">
           <div className="flex flex-col max-w-[480px] lg:self-start md:self-center md:text-center lg:text-left gap-1 md:gap-2 ">
             <h3 className="text-[24px] md:text-[28px] font-bold ">{title}</h3>
-            <p className="text-[12px] md:text-[16px] lg:text-[18px] text-[#4f4f4f]">{description}</p>
+            <p className="text-[12px] md:text-[16px] lg:text-[18px] text-[#4f4f4f]">
+              {description}
+            </p>
           </div>
           <div className="flex md:self-center lg:self-start w-fit gap-6">
-            <Button
+            {button? <Button
               className={`${btnClassName} `}
               text={btnText}
               onClick={onClick}
               variant={variant}
               startingIcon={startingIcon}
-            />
-            {secondBtn && (
-              <Button
-                className={`${btnClassName} `}
-                text={secondbtnText || ""}
-                onClick={onClick2}
-                variant={variant}
-                startingIcon={startingIcon2}
-              />
-            )}
+            />: null}
+            
           </div>
         </div>
         {/* image */}
         <div className=" w-full ">
           <div className="rounded-lg overflow-hidden flex-grow  h-[300px] md:h-[360px]  lg:h-[440px]">
             {/* to maintain aspect ratio  */}
-          <Image
-            src={imgSrc}
-            width={1920}
-            height={1080}
-            alt="img"
-            className=" w-full h-full  object-cover  "
-          />
-        </div>
+            <Image
+              src={imgSrc}
+              width={1920}
+              height={1080}
+              alt="img"
+              className=" w-full h-full  object-cover  "
+            />
           </div>
+          {/* optional buttons */}
+          <div className="flex w-full gap-3 md:gap-6 mt-4">
+          {picButtons ? (
+            <>
+              <Button
+                className={`${btnClassName} `}
+                text={btnText}
+                onClick={onClick2}
+                variant={variant}
+                startingIcon={startingIcon}
+              />
+              {secondBtn && (
+                <Button
+                  className={`${btnClassName} `}
+                  text={secondbtnText || ""}
+                  onClick={onClick3}
+                  variant={variant}
+                  startingIcon={startingIcon2}
+                />
+              )}
+            </>
+          ) : null}
+          </div>
+        </div>
       </div>
     </div>
   );
