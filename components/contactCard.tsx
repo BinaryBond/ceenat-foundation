@@ -1,0 +1,29 @@
+import Button from "./ui/button";
+
+interface ContactCardProps {
+  icon: React.ReactNode;
+  title: string;
+  btnText: string;
+  link?: string;
+}
+
+export default function contactCard({
+  icon,
+  title,
+  btnText,
+  link,
+}: ContactCardProps) {
+  return (
+    <div className="flex flex-col w-full md:min-w-[220px] border border-gray-5 rounded-[16px] gap-2 w-fit p-4 ">
+      {/* icon */}
+      <div className="bg-primary-default rounded-full mb-4 w-fit h-fit p-[16px] ">
+        {icon}
+      </div>
+      {/* text */}
+        <h3 className="text-headingSmall font-bold flex-1 ">{title}</h3>
+      <div className="flex flex-col mt-2 ">
+        <Button  text={btnText} href={link}  variant="default" />
+      </div>
+    </div>
+  );
+}

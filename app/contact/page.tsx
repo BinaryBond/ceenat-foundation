@@ -1,0 +1,46 @@
+import ContactCard from "../../components/contactCard";
+import PageHeader from "../../components/pageHeader";
+
+const contactCards = [
+  {
+    icon: <img className="w-[24px] h-[24px]" src="/svg/Facebook.svg" />,
+    title: "Visit Us",
+    btnText: "View on Google Maps",
+    link: "",
+  },
+  {
+    icon: <img className="w-[24px] h-[24px]" src="/svg/Facebook.svg" />,
+    title: "Call Us",
+    btnText: "+233 50 000 0000",
+    link: "",
+  },
+  {
+    icon: <img className="w-[24px] h-[24px]" src="/svg/mail.svg" />,
+    title: "Make Enquiries",
+    btnText: "info@ceenatfoundation.org",
+    link: "mailto:",
+  },
+];
+
+export default function page() {
+  return (
+    <div className="mt-[90px] container-wide section-padding  flex flex-col ">
+      <PageHeader title="Contact Us" />
+      <div className=" flex flex-col md:grid md:grid-cols-2 lg:flex-row lg:flex  gap-4 section-padding">
+      {contactCards.map((card, index) => (
+        <ContactCard
+          key={index}
+          title={card.title}
+          btnText={card.btnText}
+          icon={card.icon}
+          link={card.link}
+        />
+      ))}
+
+      </div>
+      <div>
+      <PageHeader quote="Ceenat Foundation  — Feeding dreams, touching hearts, building a better Ghana. " />
+      </div>
+    </div>
+  );
+}

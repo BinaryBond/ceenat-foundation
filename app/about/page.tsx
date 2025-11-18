@@ -3,6 +3,12 @@ import PageHeader from "../../components/pageHeader";
 import Image from "next/image";
 import CVCards from "../../components/ui/coreValueCard";
 import FooterPics from "../../components/footerPics";
+import Carousel from "../../components/carousel";
+import { ArrowRight } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { FaXTwitter, FaFacebookF } from "react-icons/fa6";
+import { BsArrowUpRightCircle } from "react-icons/bs";
+import EmployeeCard from "../../components/employeeCard";
 
 const coreValues = [
   { img: "/svg/compassion.svg", text: "Compassion" },
@@ -11,11 +17,97 @@ const coreValues = [
   { img: "/svg/empowerment.svg", text: "Empowerment" },
   { img: "/svg/hope.svg", text: "Hope" },
 ];
+const employeesInfo = [
+  {
+    img: "img/carousel/director.jpg",
+    name: "Cecilia Otoo",
+    position: "director",
+    details:
+      "Providing direction and leadership to advance the foundation’s humanitarian goals.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+  {
+    img: "img/carousel/ceo.jpg",
+    name: "Nathaniel Whitaker",
+    position: "ceo",
+    details:
+      "Committed to advancing the foundation’s mission with purpose and integrity.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+  {
+    img: "img/carousel/pm.jpg",
+    name: "Patrick Doodo",
+    position: "Project Manager",
+    details:
+      "Coordinating initiatives that bring hope, growth, and transformation to communities.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+  {
+    img: "img/carousel/admin.jpg",
+    name: "Selina Gueli",
+    position: "admin",
+    details:
+      "The backbone of the foundation’s activities, keeping every process organized and efficient.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+  {
+    img: "img/carousel/manager.jpg",
+    name: "Esther Dosoo",
+    position: "Manager",
+    details:
+      "Ensuring effective management of the foundation’s people, programs, and priorities.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+  {
+    img: "img/carousel/accountsofficer.jpg",
+    name: "Emmanuel Mensah",
+    position: "accounts officer",
+    details:
+      "Ensuring transparency and accountability in the foundation’s financial operations.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+  {
+    img: "img/carousel/pr.jpg",
+    name: "Teddy Cobbold",
+    position: "Public Relations",
+    details:
+      "Working closely with communities to turn the foundation’s vision into action.",
+    socials: [
+      { Icon: FaFacebookF, link: "#" },
+      { Icon: FaXTwitter, link: "#" },
+      { Icon: Instagram, link: "#" },
+    ],
+  },
+];
 
 export default function About() {
   return (
-    <div className="mt-[90px] flex flex-col ">
-      <div className="section-padding flex flex-col">
+    <div className="mt-[90px] min-h-screen max w-screen overflow-x-hidden ">
+      <section className="section-padding flex flex-col">
         <PageHeader
           title="About Us"
           quote="Born from Compassion. Built on Hope."
@@ -55,9 +147,9 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       {/* core values and mission */}
-      <div className=" container-wide w-full   flex flex-col lg:flex-row lg:justify-between gap-14 section-padding">
+      <section className=" container-wide w-full   flex flex-col lg:flex-row lg:justify-between gap-14 section-padding">
         {/* CV */}
         <div className="flex flex-col flex-1 gap-4 md:gap-11">
           <h3 className="text-primary-default  text-headingSmall md:text-headingMedium font-bold text-center">
@@ -99,8 +191,29 @@ export default function About() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
       {/* Our Team */}
+      <section className="flex flex-col gap-10 container-wide section-padding">
+        <ul className="space-y-1.5">
+          <li className="section-title uppercase">Our Team</li>
+          <li className="section-subtext">
+            Dedicated minds driving our cause forward
+          </li>
+        </ul>
+
+        <Carousel>
+          {employeesInfo.map((info, index) => (
+            <EmployeeCard
+              key={index}
+              img={info.img}
+              name={info.name}
+              position={info.position}
+              details={info.details}
+              socials={info.socials}
+            />
+          ))}
+        </Carousel>
+      </section>
 
       {/* FAQ */}
 

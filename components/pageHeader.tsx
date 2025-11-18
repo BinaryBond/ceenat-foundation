@@ -1,8 +1,8 @@
 import React from 'react'
 
 interface PageHeaderProps {
-    title: string;
-    quote: string;
+    title?: string;
+    quote?: string;
 }
 
 export default function pageHeader({title, quote}: PageHeaderProps) {
