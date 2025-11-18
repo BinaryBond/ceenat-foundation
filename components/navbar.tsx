@@ -1,8 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import  { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { useMenu } from "../contexts/menu-context";
+import  { usePathname } from"next/navigation";
+import Button from "./ui/button";
+
 
 const navItems = [
  
@@ -13,67 +17,124 @@ const navItems = [
 ];
 
 export default function navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpened, setIsOpened } = useMenu();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
+
+
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as Node;
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(target) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(target)
+    ) {
+      setIsOpened(false);
+    }
+  };
+  const handleEsc = (e: KeyboardEvent) => {
+    if (e.key === "Escape") setIsOpened(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleEsc);
+
+    if (isOpened) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    document.body.style.overflow = isOpened ? "hidden" : "auto";
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpened, handleClickOutside]);
+
+  const isActiveLink = (href: string) => {
+    return pathname === href;
+  };
 
   return (
     <main className="bg-gray-1 w-full fixed top-0 border-b z-9999 border-gray-4">
       <nav className="container-wide nav-padding flex-between relative z-50">
-        <Link href="/">
-          <div className="flex-center gap-0.5 max-w-[155px] md:max-w-[500px]">
+        <Link href="/" className="cursor-pointer">
+          <div className="flex-center gap-0.5 xl:gap-1 max-w-[155px] sm:max-w-[500px]">
             <Image
-              className="w-10 h-10"
+              className="w-10 h-10 xl:w-[45px] xl:h-[45px]"
               src="/svg/logo.svg"
               width={80}
               height={80}
               alt="logo"
             />
-            <p className="text-primary-default text-bodyLarge font-extrabold leading-5">
+            <p className="text-primary-default text-base sm:text-lg md:text-[20px] xl:text-[22px] font-extrabold leading-5">
               Ceenat Foundation
-              </p>
-            
+            </p>
           </div>
         </Link>
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-black text-[14px] font-medium hover:text-blue-600 transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
+        <div className="hidden lg:flex items-center gap-14">
+          <div className="flex-center gap-10">
+          {navItems.map((item) => {
+            const isActive = isActiveLink(item.href);
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`${
+                  isActive ? "text-green-8" : "text-gray-8"
+                }  text-sm xl:text-[15px] font-medium hover:text-green-8 transition-colors`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+          </div>
+          <Button text="Donate" className="hidden lg:flex"/>
+
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
-          {isOpen ? <X className="w-6 h-6 text-primary-default"/> :           
-          <Image
-            className="w-[21px] h-4 hover:cursor-pointer"
-            src="/svg/hamburger.svg"
-            width={80}
-            height={80}
-            alt="menu"
-          />
-          }
-        </button>
+        <div className="lg:hidden flex items-center gap-6">
+          <Button text="Donate" className="hidden sm:flex" />
+          <button ref={buttonRef} onClick={() => setIsOpened(!isOpened)}>
+            {isOpened ? (
+              <X className="w-6 h-6 text-primary-default" />
+            ) : (
+              <Image
+                className="w-[21px] h-4 hover:cursor-pointer"
+                src="/svg/hamburger.svg"
+                width={80}
+                height={80}
+                alt="menu"
+              />
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 absolute w-full z-40">
-          <div className="px-6 py-4 space-y-3">
+      {isOpened && (
+        <div
+          ref={menuRef}
+          className="lg:hidden bg-white border-t border-gray-200 absolute w-full z-40"
+        >
+          <div className="container-wide py-4 space-y-3">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block text-black text-[14px] font-medium py-2 hover:text-primary-default transition-colors"
+                onClick={() => setIsOpened(false)}
+                className="block text-gray-11 text-sm sm:text-base font-medium py-2 hover:text-primary-default transition-colors"
               >
                 {item.name}
               </Link>
             ))}
+            <Button text="Donate" className="w-full sm:hidden" />
           </div>
         </div>
       )}

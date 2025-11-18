@@ -50,7 +50,7 @@ export default function Carousel({ children }: CarouselProps) {
         ref={scrollRef}
         className="
           flex gap-5 overflow-x-auto scroll-smooth
-          snap-x snap-mandatory pb-4
+          snap-x snap-mandatory pb-4 xl:max-w-6xl xl:mx-auto
           scrollbar-hide
         "
       >
@@ -68,7 +68,7 @@ export default function Carousel({ children }: CarouselProps) {
             ${
               atStart
                 ? "text-gray-5 cursor-not-allowed"
-                : "text-gray-11 hover:scale-105"
+                : "text-gray-11 hover:scale-105 hover:text-green-8 cursor-pointer transition-all duration-300 ease-in-out"
             }
           `}
         >
@@ -84,7 +84,7 @@ export default function Carousel({ children }: CarouselProps) {
             ${
               atEnd
                 ? "text-gray-5 cursor-not-allowed"
-                : "text-gray-11 hover:scale-105"
+                : "text-gray-11 hover:scale-105 hover:text-green-8 cursor-pointer transition-all duration-300 ease-in-out"
             }
           `}
         >
