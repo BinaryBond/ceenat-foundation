@@ -182,7 +182,7 @@ export default function Home() {
             <div className="relative w-full max-w-[550px] max-h-[580px] aspect-[4/5] lg:w-1/2 rounded-[24px] overflow-hidden lg:order-1">
               <div className="absolute inset-0 bg-gray-10/50 z-10"></div>
               <Image
-                src="/img/home/whatWeDo.png"
+                src="/img/home/whatwedo.png"
                 alt="hands on child face"
                 fill
                 className="object-cover object-center"
