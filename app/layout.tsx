@@ -3,6 +3,9 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import { MenuProvider } from "../contexts/menu-context";
+import Overlay from "../components/ui/overlay";
+
 
 
 const raleway = Raleway({
@@ -22,10 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} relative antialiased min-w-[320px]`}>
-        <Navbar />
-        {children}     
-        <Footer />     
+      <body
+        className={`${raleway.variable} relative antialiased min-w-[320px]`}
+      >
+        <MenuProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <Overlay />
+        </MenuProvider>
       </body>
     </html>
   );
