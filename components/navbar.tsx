@@ -1,15 +1,14 @@
 "use client";
-import  { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useMenu } from "../contexts/menu-context";
-import  { usePathname } from"next/navigation";
+import { usePathname } from "next/navigation";
 import Button from "./ui/button";
-
+import DonateModal from "./donateModal";
 
 const navItems = [
- 
   { name: "About us", href: "/about" },
   { name: "Our Programs", href: "/programs" },
   { name: "Volunteer", href: "/volunteer" },
@@ -21,7 +20,7 @@ export default function navbar() {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const pathname = usePathname();
-
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
   const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as Node;
@@ -79,28 +78,35 @@ export default function navbar() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-14">
           <div className="flex-center gap-10">
-          {navItems.map((item) => {
-            const isActive = isActiveLink(item.href);
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`${
-                  isActive ? "text-green-8" : "text-gray-7"
-                }  text-sm xl:text-[15px] font-medium hover:text-green-8 transition-colors`}
-              >
-                {item.name}
-              </Link>
-            );
-          })}
+            {navItems.map((item) => {
+              const isActive = isActiveLink(item.href);
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`${
+                    isActive ? "text-green-8" : "text-gray-7"
+                  }  text-sm xl:text-[15px] font-medium hover:text-green-8 transition-colors`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
-          <Button text="Donate" className="hidden lg:flex"/>
-
+          <Button
+            text="Donate"
+            className="hidden lg:flex"
+            onClick={() => setIsDonateModalOpen(true)}
+          />
         </div>
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center gap-6">
-          <Button text="Donate" className="hidden sm:flex" />
+          <Button
+            text="Donate"
+            className="hidden sm:flex"
+            onClick={() => setIsDonateModalOpen(true)}
+          />
           <button ref={buttonRef} onClick={() => setIsOpened(!isOpened)}>
             {isOpened ? (
               <X className="w-6 h-6 text-primary-default" />
@@ -134,10 +140,18 @@ export default function navbar() {
                 {item.name}
               </Link>
             ))}
-            <Button text="Donate" className="w-full sm:hidden" />
+            <Button
+              text="Donate"
+              className="w-full sm:hidden"
+              onClick={() => setIsDonateModalOpen(true)}
+            />
           </div>
         </div>
       )}
+      <DonateModal
+        isOpen={isDonateModalOpen}
+        onClose={() => setIsDonateModalOpen(false)}
+      />
     </main>
   );
 }

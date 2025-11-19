@@ -1,3 +1,4 @@
+"use client"
 import Button from "../components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -8,8 +9,11 @@ import { FaXTwitter, FaFacebookF } from "react-icons/fa6";
 import { BsArrowUpRightCircle } from "react-icons/bs";
 import FooterPics from "../components/footerPics";
 import Link from "next/link";
+import { useState } from "react";
+import DonateModal from "../components/donateModal";
 
 export default function Home() {
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
   const focusCards = [
     {
       title: "Feeding Programs",
@@ -122,9 +126,7 @@ export default function Home() {
   return (
     <main className="bg-[#f7f7f7]">
       {/* Hero */}
-      <section
-        className="bg-img-opacity-60 min-h-screen pt-20 w-full mx-auto px-5 sm:px-10 lg:px-12 flex flex-col justify-around herorow:justify-center items-center herorow:gap-24 xl:gap-10 herorow:pt-0 bg-cover"
-      >
+      <section className="bg-img-opacity-60 min-h-screen pt-20 w-full mx-auto px-5 sm:px-10 lg:px-12 flex flex-col justify-around herorow:justify-center items-center herorow:gap-24 xl:gap-10 herorow:pt-0 bg-cover">
         <p className="font-medium herorow:font-semibold xl:font-bold text-xl sm:text-[22px] md:text-[28px] lg:text-[32px] xl:text-[40px]  text-gray-11 text-center">
           Restoring Hope. Changing Lives.
         </p>
@@ -282,15 +284,15 @@ export default function Home() {
                 it most.
               </p>
               <div className="flex flex-col sm:flex-row items-center gap-6 mt-8">
-                <Button text="Donate Now" className="w-full sm:w-auto" />
+                <Button text="Donate Now" className="w-full sm:w-auto" onClick={() => setIsDonateModalOpen(true)} />
                 <Link href="/programs">
-                <button className="cursor-pointer group flex flex-col gap-2 font-medium text-primary-default">
-                  <span className="flex-center gap-2">
-                    Our Programs <BsArrowUpRightCircle className="w-5 h-5" />
-                  </span>
-                  {/* Underline Animation */}
-                  <span className="h-[1.5px] xl:h-[2px] rounded-full w-full bg-primary-default origin-left scale-x-50 transition-transform duration-300 group-hover:scale-x-100" />
-                </button>
+                  <button className="cursor-pointer group flex flex-col gap-2 font-medium text-primary-default">
+                    <span className="flex-center gap-2">
+                      Our Programs <BsArrowUpRightCircle className="w-5 h-5" />
+                    </span>
+                    {/* Underline Animation */}
+                    <span className="h-[1.5px] xl:h-[2px] rounded-full w-full bg-primary-default origin-left scale-x-50 transition-transform duration-300 group-hover:scale-x-100" />
+                  </button>
                 </Link>
               </div>
             </div>
@@ -383,12 +385,16 @@ export default function Home() {
               In many communities across Ghana, countless children go to bed
               hungry. Families struggle to find food, education, and support.
             </li>
-            <Button text="Contribute" />
+            <Button text="Contribute" onClick={() => setIsDonateModalOpen(true)} />
           </ul>
         </div>
       </section>
 
       <FooterPics />
+      <DonateModal
+        isOpen={isDonateModalOpen}
+        onClose={() => setIsDonateModalOpen(false)}
+      />
     </main>
   );
 }

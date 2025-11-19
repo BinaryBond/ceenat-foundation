@@ -1,5 +1,8 @@
+"use client"
 import Image from "next/image";
 import Button from "./ui/button";
+import DonateModal from "./donateModal"
+import { useState } from "react"
 
 interface VolunteerCardProps {
   imgSrc: string;
@@ -38,6 +41,8 @@ export default function volunteerCard({
   startingIcon,
   startingIcon2,
 }: VolunteerCardProps) {
+    const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+  
   return (
     <div className="flex flex-col  lg:w-full  ">
       {/* icon */}
@@ -107,6 +112,11 @@ export default function volunteerCard({
           </div>
         </div>
       </div>
+      
+                  <DonateModal
+                    isOpen={isDonateModalOpen}
+                    onClose={() => setIsDonateModalOpen(false)}
+                  />
     </div>
   );
 }

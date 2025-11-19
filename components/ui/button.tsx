@@ -5,9 +5,9 @@ import { classNames } from "../../utils/classNames";
 // Map of variant names to Tailwind class strings
 const variants = {
   default:
-    "bg-primary-default text-gray-1 hover:bg-primary-hover focus:bg-primary-active",
+    "py-2.5 lg:py-3.5 bg-primary-default text-gray-1 hover:bg-primary-hover focus:bg-primary-active",
   outline:
-    "bg-gray-1  text-primary-default border border-solid border-primary-default hover:bg-gray-3 focus:bg-gray-3",
+    "py-2 lg:py-3 bg-gray-1 text-primary-default border border-solid border-primary-default hover:bg-green-1 focus:bg-green-1",
 } as const;
 
 type Variant = keyof typeof variants;
@@ -28,7 +28,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const baseStyles =
-  "px-6 py-2.5 lg:px-8 lg:py-3.5 text-bodyLarge lg:text-headingExtraSmall cursor-pointer rounded-lg flex-center gap-[10px] font-medium  disabled:opacity-50 disabled:cursor-not-allowed";
+  "px-6 lg:px-8 text-bodyLarge lg:text-headingExtraSmall cursor-pointer rounded-lg flex-center gap-[10px] font-medium  disabled:opacity-50 disabled:cursor-not-allowed";
 
 export default function Button({
   text,

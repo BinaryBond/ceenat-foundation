@@ -1,7 +1,10 @@
+"use client"
 import PageHeader from "../../components/pageHeader";
 import VolunteerCard from "../../components/volunteerCard";
 import FooterPics from "../../components/footerPics";
 import Story from "../../components/story";
+import { useState } from "react";
+import DonateModal from "../../components/donateModal";
 
 const volunteerData = [
   {
@@ -11,6 +14,7 @@ const volunteerData = [
     description:
       "Every cedi counts. Your donation helps us feed a hungry child, educate a student, and restore hope to struggling families.",
     btnText: "Donate",
+    onClick: () => setIsDonateModalOpen(true)
   },
   {
     imgSrc: "/img/volunteer/volunteer2.png",
@@ -66,6 +70,8 @@ const stories =[
 ]
 
 export default function page() {
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+
   return (
     
     <div className="mt-[90px] flex-1 bg-[#f7f7f7] min-h-screen  flex flex-col ">
@@ -128,6 +134,11 @@ export default function page() {
           </div>
         </div>
       </div>
+      
+            <DonateModal
+              isOpen={isDonateModalOpen}
+              onClose={() => setIsDonateModalOpen(false)}
+            />
       {/* Footer pics */}
       <FooterPics />
     </div>
