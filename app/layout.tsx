@@ -31,6 +31,8 @@ export default function RootLayout({
         <MenuProvider>
           <Navbar />
           {children}
+          {/* Portal root */}
+          <div id="portal-root" />
           <Footer />
           <Overlay />
         </MenuProvider>
