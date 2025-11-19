@@ -6,49 +6,7 @@ import Story from "../../components/story";
 import { useState } from "react";
 import DonateModal from "../../components/donateModal";
 
-const volunteerData = [
-  {
-    imgSrc: "/img/volunteer/volunteer1.png",
-    iconSrc: "/svg/donate.svg",
-    title: "Donate",
-    description:
-      "Every cedi counts. Your donation helps us feed a hungry child, educate a student, and restore hope to struggling families.",
-    btnText: "Donate",
-    onClick: () => setIsDonateModalOpen(true)
-  },
-  {
-    imgSrc: "/img/volunteer/volunteer2.png",
-    iconSrc: "/svg/volunteer.svg",
-    title: "Volunteer",
-    description:
-      "Join our passionate volunteers who dedicate their time and love to serve others.",
-    btnText: "Contact us",
-  },
-  {
-    imgSrc: "/img/volunteer/volunteer3.png",
-    iconSrc: "/svg/partner.svg",
-    title: "Partner With Us",
-    description:
-      "Partner with us as an organization, school, or business to create lasting impact in communities across Ghana.",
-    btnText: "Contact us",
-  },
-  {
-    imgSrc: "/img/volunteer/volunteer4.png",
-    iconSrc: "/svg/mail.svg",
-    title: "Stay Connected",
-    description:
-      "Stay connected with us and be the first to know about our latest initiatives, success stories, and upcoming events, giving you an inside look at the impact we’re making and the lives we’re transforming.",
-    btnText: "Facebook",
-    secondbtnText: "Instagram",
-    secondBtn: true,
-    button: false,
-    btnClassName: "flex-1",
-    variant: "default" as "default",
-    startingIcon: <img src="/svg/facebook.svg" />,
-    startingIcon2: <img src="/svg/Instagram.svg" />,
-    picButtons: true,
-  },
-];
+
 
 const stories =[
   {
@@ -72,6 +30,49 @@ const stories =[
 export default function page() {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
+  const volunteerData = [
+    {
+      imgSrc: "/img/volunteer/volunteer1.png",
+      iconSrc: "/svg/donate.svg",
+      title: "Donate",
+      description:
+        "Every cedi counts. Your donation helps us feed a hungry child, educate a student, and restore hope to struggling families.",
+      btnText: "Donate",
+      onClick: () => setIsDonateModalOpen(true)
+    },
+    {
+      imgSrc: "/img/volunteer/volunteer2.png",
+      iconSrc: "/svg/volunteer.svg",
+      title: "Volunteer",
+      description:
+        "Join our passionate volunteers who dedicate their time and love to serve others.",
+      btnText: "Contact us",
+    },
+    {
+      imgSrc: "/img/volunteer/volunteer3.png",
+      iconSrc: "/svg/partner.svg",
+      title: "Partner With Us",
+      description:
+        "Partner with us as an organization, school, or business to create lasting impact in communities across Ghana.",
+      btnText: "Contact us",
+    },
+    {
+      imgSrc: "/img/volunteer/volunteer4.png",
+      iconSrc: "/svg/mail.svg",
+      title: "Stay Connected",
+      description:
+        "Stay connected with us and be the first to know about our latest initiatives, success stories, and upcoming events, giving you an inside look at the impact we’re making and the lives we’re transforming.",
+      btnText: "Facebook",
+      secondbtnText: "Instagram",
+      secondBtn: true,
+      button: false,
+      btnClassName: "flex-1",
+      variant: "default" as "default",
+      startingIcon: <img src="/svg/facebook.svg" />,
+      startingIcon2: <img src="/svg/Instagram.svg" />,
+      picButtons: true,
+    },
+  ];
   return (
     
     <div className="mt-[90px] flex-1 bg-[#f7f7f7] min-h-screen  flex flex-col ">
@@ -95,6 +96,7 @@ export default function page() {
               button={item.button}
               btnClassName={item.btnClassName}
               picButtons={item.picButtons}
+              onClick={item.onClick}
               // variant="outline"
             />
           ))}
