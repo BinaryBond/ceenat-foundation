@@ -1,7 +1,6 @@
 import PageHeader from "../../components/pageHeader";
 import Image from "next/image";
 import ProgramText from "../../components/programText";
-import FooterPics from "../../components/footerPics";
 
 const programsInfo = [
   {
@@ -132,7 +131,6 @@ export default function page() {
           </div>
         </section>
       </div>
-      <FooterPics />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 "use client"
 import PageHeader from "../../components/pageHeader";
 import VolunteerCard from "../../components/volunteerCard";
-import FooterPics from "../../components/footerPics";
 import Story from "../../components/story";
 import { useState } from "react";
 import DonateModal from "../../components/donateModal";
@@ -141,8 +140,6 @@ export default function page() {
               isOpen={isDonateModalOpen}
               onClose={() => setIsDonateModalOpen(false)}
             />
-      {/* Footer pics */}
-      <FooterPics />
     </div>
   );
 }

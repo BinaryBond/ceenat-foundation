@@ -216,11 +216,6 @@ export default function About() {
         </Carousel>
         <div className="w-full h-px bg-gray-3"/>
       </section>
-
-      {/* FAQ */}
-
-      {/* Footer pics */}
-      <FooterPics />
     </div>
   );
 }
