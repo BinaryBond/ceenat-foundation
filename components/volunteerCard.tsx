@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Button from "./ui/button";
-import DonateModal from "./donateModal"
-import { useState } from "react"
+import DonateModal from "./donateModal";
+import { useState } from "react";
 
 interface VolunteerCardProps {
   imgSrc: string;
@@ -33,16 +33,16 @@ export default function volunteerCard({
   btnClassName,
   secondBtn,
   secondbtnText,
-  button= true,
-  picButtons=false,
+  button = true,
+  picButtons = false,
   onClick2,
   onClick3,
   variant = "outline",
   startingIcon,
   startingIcon2,
 }: VolunteerCardProps) {
-    const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
-  
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+
   return (
     <div className="flex flex-col  lg:w-full  ">
       {/* icon */}
@@ -65,14 +65,15 @@ export default function volunteerCard({
             </p>
           </div>
           <div className="flex md:self-center lg:self-start w-fit gap-6">
-            {button? <Button
-              className={`${btnClassName} `}
-              text={btnText}
-              onClick={onClick}
-              variant={variant}
-              startingIcon={startingIcon}
-            />: null}
-            
+            {button ? (
+              <Button
+                className={`${btnClassName} `}
+                text={btnText}
+                onClick={onClick}
+                variant={variant}
+                startingIcon={startingIcon}
+              />
+            ) : null}
           </div>
         </div>
         {/* image */}
@@ -89,34 +90,34 @@ export default function volunteerCard({
           </div>
           {/* optional buttons */}
           <div className="flex w-full gap-3 md:gap-6 mt-4">
-          {picButtons ? (
-            <>
-              <Button
-                className={`${btnClassName} `}
-                text={btnText}
-                onClick={onClick2}
-                variant={variant}
-                startingIcon={startingIcon}
-              />
-              {secondBtn && (
+            {picButtons ? (
+              <>
                 <Button
                   className={`${btnClassName} `}
-                  text={secondbtnText || ""}
-                  onClick={onClick3}
+                  text={btnText}
+                  onClick={onClick2}
                   variant={variant}
-                  startingIcon={startingIcon2}
+                  startingIcon={startingIcon}
                 />
-              )}
-            </>
-          ) : null}
+                {secondBtn && (
+                  <Button
+                    className={`${btnClassName} `}
+                    text={secondbtnText || ""}
+                    onClick={onClick3}
+                    variant={variant}
+                    startingIcon={startingIcon2}
+                  />
+                )}
+              </>
+            ) : null}
           </div>
         </div>
       </div>
-      
-                  <DonateModal
-                    isOpen={isDonateModalOpen}
-                    onClose={() => setIsDonateModalOpen(false)}
-                  />
+
+      <DonateModal
+        isOpen={isDonateModalOpen}
+        onClose={() => setIsDonateModalOpen(false)}
+      />
     </div>
   );
 }

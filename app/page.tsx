@@ -7,7 +7,6 @@ import EmployeeCard from "./../components/employeeCard";
 import { Instagram } from "lucide-react";
 import { FaXTwitter, FaFacebookF } from "react-icons/fa6";
 import { BsArrowUpRightCircle } from "react-icons/bs";
-import FooterPics from "../components/footerPics";
 import Link from "next/link";
 import { useState } from "react";
 import DonateModal from "../components/donateModal";
@@ -389,8 +388,6 @@ export default function Home() {
           </ul>
         </div>
       </section>
-
-      <FooterPics />
       <DonateModal
         isOpen={isDonateModalOpen}
         onClose={() => setIsDonateModalOpen(false)}
