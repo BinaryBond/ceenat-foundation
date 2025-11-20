@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Button from "./ui/button";
-import DonateModal from "./donateModal"
-import { useState } from "react"
+import DonateModal from "./donateModal";
+import { useState } from "react";
 
 interface VolunteerCardProps {
   imgSrc: string;
@@ -33,29 +33,31 @@ export default function volunteerCard({
   btnClassName,
   secondBtn,
   secondbtnText,
-  button= true,
-  picButtons=false,
+  button = true,
+  picButtons = false,
   onClick2,
   onClick3,
   variant = "outline",
   startingIcon,
   startingIcon2,
 }: VolunteerCardProps) {
-    const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
-  
+  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
+
   return (
-    <div className="flex flex-col  lg:w-full  ">
+    <div className="flex flex-col bg-white p-5 shadow shadow-sm md:p-[60px] relative rounded-[24px]  lg:w-full  ">
       {/* icon */}
-      <div className="bg-primary-default md:self-center lg:self-start  rounded-full mb-4 w-fit h-fit p-2.5 md:p-[16px] ">
-        <Image
-          src={iconSrc}
-          width={1920}
-          height={1080}
-          alt="img"
-          className=" w-6 md:w-[56px] "
-        />
+      <div className="bg-white/10 md:self-center absolute shadow shadow-lg backdrop-blur-sm -translate-y-1/2 top-0 lg:self-start  rounded-full  w-fit h-fit p-2.5 md:p-[16px] ">
+        <div className="bg-primary-default shadow shadow-lg rounded-full p-2.5 md:p-[10px]">
+          <Image
+            src={iconSrc}
+            width={1920}
+            height={1080}
+            alt="img"
+            className=" w-6 md:w-[56px] "
+          />
+        </div>
       </div>
-      <div className="flex flex-col  gap-4 md:gap-6 lg:flex-row lg:justify-around  w-full">
+      <div className="flex flex-col  gap-4 md:gap-6 lg:flex-row mt-4 lg:justify-around  w-full">
         {/* text */}
         <div className="flex flex-col w-full  gap-4 lg:gap-4">
           <div className="flex flex-col max-w-[480px] lg:self-start md:self-center md:text-center lg:text-left gap-1 md:gap-2 ">
@@ -65,14 +67,15 @@ export default function volunteerCard({
             </p>
           </div>
           <div className="flex md:self-center lg:self-start w-fit gap-6">
-            {button? <Button
-              className={`${btnClassName} `}
-              text={btnText}
-              onClick={onClick}
-              variant={variant}
-              startingIcon={startingIcon}
-            />: null}
-            
+            {button ? (
+              <Button
+                className={`${btnClassName} `}
+                text={btnText}
+                onClick={onClick}
+                variant={variant}
+                startingIcon={startingIcon}
+              />
+            ) : null}
           </div>
         </div>
         {/* image */}
@@ -89,34 +92,34 @@ export default function volunteerCard({
           </div>
           {/* optional buttons */}
           <div className="flex w-full gap-3 md:gap-6 mt-4">
-          {picButtons ? (
-            <>
-              <Button
-                className={`${btnClassName} `}
-                text={btnText}
-                onClick={onClick2}
-                variant={variant}
-                startingIcon={startingIcon}
-              />
-              {secondBtn && (
+            {picButtons ? (
+              <>
                 <Button
                   className={`${btnClassName} `}
-                  text={secondbtnText || ""}
-                  onClick={onClick3}
+                  text={btnText}
+                  onClick={onClick2}
                   variant={variant}
-                  startingIcon={startingIcon2}
+                  startingIcon={startingIcon}
                 />
-              )}
-            </>
-          ) : null}
+                {secondBtn && (
+                  <Button
+                    className={`${btnClassName} `}
+                    text={secondbtnText || ""}
+                    onClick={onClick3}
+                    variant={variant}
+                    startingIcon={startingIcon2}
+                  />
+                )}
+              </>
+            ) : null}
           </div>
         </div>
       </div>
-      
-                  <DonateModal
-                    isOpen={isDonateModalOpen}
-                    onClose={() => setIsDonateModalOpen(false)}
-                  />
+
+      <DonateModal
+        isOpen={isDonateModalOpen}
+        onClose={() => setIsDonateModalOpen(false)}
+      />
     </div>
   );
 }
