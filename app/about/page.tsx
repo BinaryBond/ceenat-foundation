@@ -156,7 +156,7 @@ export default function About() {
           <h3 className="text-primary-default self-center section-title  w-fit md:pl-2 font-bold ">
             Core Values
           </h3>
-          <div className="flex flex-col md:grid grid-cols-2 md:gap-6 gap-3 ">
+          <div className="grid grid-cols-2  md:gap-6 gap-3 ">
             {coreValues.map((coreValue) => (
               <CVCards
                 key={coreValue.img}
